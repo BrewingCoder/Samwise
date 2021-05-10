@@ -15,10 +15,12 @@
   <ItemGroup>
     <PackageReference Include="OrchardCore.Logging.NLog" Version="1.0.0-rc2-16183" />
     <PackageReference Include="OrchardCore.Application.Cms.Targets" Version="1.0.0-rc2-16183" />
+    <PackageReference Include="OrchardCore.Recipes" Version="1.0.0-rc2-16186" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Samwise.Module1\Samwise.Module1.csproj" />
+    <ProjectReference Include="..\SamwiseTheme\SamwiseTheme.csproj" />
   </ItemGroup>
 
 </Project>

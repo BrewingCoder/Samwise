@@ -8,5 +8,6 @@ namespace Samwise.DataServices
         void Commit();
         void Rollback();
         ISession GetSession();
+        void Dispose();
     }
 }

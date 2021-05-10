@@ -15,4 +15,8 @@
     <PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-rc2-16183" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Samwise.DataServices\Samwise.DataServices.csproj" />
+  </ItemGroup>
+
 </Project>

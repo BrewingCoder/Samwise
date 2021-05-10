@@ -1,21 +1,29 @@
+using System;
 using NHibernate;
 using OrchardCore.Data;
+using YesSql;
+using ISession = NHibernate.ISession;
 
 namespace Samwise.DataServices
 {
-    public class NHibernateUnitOfWork : IUnitOfWork
+    public class NHibernateUnitOfWork : IUnitOfWork,IDisposable
     {
         private readonly ISession _session;
         private ITransaction _transaction;
 
-        public NHibernateUnitOfWork(IDbConnectionAccessor dbAccessor)
+        public NHibernateUnitOfWork(IStore store, IDbConnectionAccessor accessor)
         {
-            _session = NHibernateManager.Instance().WithOptions().Connection(dbAccessor.CreateConnection()).OpenSession();
+            var conn = accessor.CreateConnection();
+            _session = NHibernateManager.Instance(store,conn.ConnectionString)
+                            .WithOptions()
+                            .Connection(accessor.CreateConnection())
+                            .OpenSession();
+            conn.Close();
         }
 
         ~NHibernateUnitOfWork()
         {
-            _session?.Close();
+            Dispose(false);
         }
 
         public void BeginTransaction()
@@ -38,6 +46,27 @@ namespace Samwise.DataServices
         public ISession GetSession()
         {
             return _session;
-        }        
+        }
+
+        private void ReleaseUnmanagedResources()
+        {
+            // TODO release unmanaged resources here
+        }
+
+        private void Dispose(bool disposing)
+        {
+            ReleaseUnmanagedResources();
+            if (disposing)
+            {
+                _session?.Dispose();
+                _transaction?.Dispose();
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
     }
 }

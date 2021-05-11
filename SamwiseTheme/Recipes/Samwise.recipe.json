@@ -36,10 +36,6 @@
       ]
     },
     {
-      "name" : "Testing",
-      "TestVariable" : "Some Random String Assignment"
-    },
-    {
       "name" : "Samwise",
       "TestVariable" : "Some Other Random String"
     },

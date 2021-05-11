@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using OrchardCore.Recipes;
 
 
 namespace Samwise.Cms
@@ -10,9 +9,7 @@ namespace Samwise.Cms
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddOrchardCms()
-                //.AddRecipeExecutionStep<TestingStep>();
-                ;
+            services.AddOrchardCms();
         }
         
         public void Configure(IApplicationBuilder app, IHostEnvironment env)

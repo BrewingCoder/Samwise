@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+      <PackageReference Include="Dapper.StrongName" Version="2.0.78" />
       <PackageReference Include="OrchardCore.Admin.Abstractions" Version="1.0.0-rc2-16186" />
       <PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0-rc2-16186" />
       <PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0-rc2-16186" />
@@ -18,6 +19,10 @@
       <PackageReference Include="OrchardCore.Theme.Targets" Version="1.0.0-rc2-16186" />
       <PackageReference Include="OrchardCore.Users" Version="1.0.0-rc2-16186" />
       <PackageReference Include="OrchardCore.Users.Abstractions" Version="1.0.0-rc2-16186" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Samwise.DataServices\Samwise.DataServices.csproj" />
   </ItemGroup>
 
 </Project>

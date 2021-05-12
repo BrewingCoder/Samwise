@@ -4,6 +4,7 @@ using OrchardCore.Admin;
 using OrchardCore.Modules;
 using OrchardCore.Recipes;
 using OrchardCore.ResourceManagement;
+using SamwiseTheme.Recipes.StepHandlers;
 
 namespace SamwiseTheme
 {
@@ -19,7 +20,7 @@ namespace SamwiseTheme
         public override void ConfigureServices(IServiceCollection serviceCollection)
         {
             serviceCollection.AddTransient<IConfigureOptions<ResourceManagementOptions>, ResourceManagementOptionsConfiguration>();
-            serviceCollection.AddRecipeExecutionStep<SamwiseStep>();
+            serviceCollection.AddRecipeExecutionStep<DirectSqlStep>();
             serviceCollection.AddMvc();
             
         }

@@ -36,9 +36,43 @@
       ]
     },
     {
-      "name" : "Samwise",
-      "TestVariable" : "Some Other Random String"
+      "name": "Roles",
+      "Roles": [
+        {
+          "Name": "Anonymous",
+          "Description": "Anonymous role",
+          "Permissions": [ "ViewContent", "QueryLuceneSearchIndex" ]
+        },
+        {
+          "Name": "Employee",
+          "Description": "Employee Role",
+          "Permissions": [ "ViewContent", "QueryLuceneSearchIndex", "Reporter" ]
+        },
+        {
+          "Name": "Safety",
+          "Description": "Safety Personnel",
+          "Permissions": [ "ViewContent", "QueryLuceneSearchIndex", "Reporter", "Reviewer", "Level_1_Approver" ]
+        },
+        {
+          "Name": "Safety_Official",
+          "Description": "Safety Personnel",
+          "Permissions": [ "ViewContent", "QueryLuceneSearchIndex", "Reporter", "Reviewer", "Level_1_Approver","level_2_Approver" ]
+        }
+      ] 
     },
+    {
+      "name": "DirectSql",
+      "Statements": [
+        {
+          "description": "Add Locations Table",
+          "Script": "[file:text('Snippets/Table_Locations.sql')]"
+        },
+        {
+          "description": "Add HazardReport Table",
+          "Script": "[file:text('Snippets/HazardReport.sql')]"
+        }
+      ] 
+      },
     {
       "name": "themes",
       "admin": "TheAdmin",
